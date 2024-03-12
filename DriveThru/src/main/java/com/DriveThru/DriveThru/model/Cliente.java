@@ -3,7 +3,6 @@ package com.DriveThru.DriveThru.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -16,7 +15,6 @@ public class Cliente {
 
     @NotNull(message = "Campo CPF não pode ser nulo.") //O CPF não pode ser nulo
     @Column(nullable = false, unique = true) // O banco de dados não deve permitir valores nulos na coluna correspondente, não tera cpf duplicado
-    @Pattern(regexp = "[0-9]+", message = "Deve conter apenas números")
     @Size(min = 11, max = 14) // Tamnho do cpf deve estar entre 11 a 14 caarcteres
     private String cpf;
 
