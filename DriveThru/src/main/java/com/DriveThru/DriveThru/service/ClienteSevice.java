@@ -17,8 +17,28 @@ public class ClienteSevice {
         return clienteRepository.findAll();
     }
 
-    public Cliente criar(Cliente cliente){
+    public Cliente criarCliente(Cliente cliente){
         return clienteRepository.save(cliente);
     }
 
+    public Cliente editarCliente(Long id, Cliente cliente){
+        if (clienteRepository.existsById(id)) {
+            cliente.setId(id);
+            return clienteRepository.save(cliente);
+        } return null;
+    }
+
+    public boolean excluirCliente(Long id){
+        if(clienteRepository.existsById(id)) {
+            clienteRepository.deleteById(id);
+            return true;
+        } return false;
+    }
 }
+//public boolean deletar(Long id) {
+//    if (funcionarioRepository.existsById(id)) {
+//        funcionarioRepository.deleteById(id);
+//        return true;
+//    }
+//    return false;
+//}
